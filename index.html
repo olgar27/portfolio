@@ -3,65 +3,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Profile | Tshepiso Olgar Nkwana</title>
+  <title>Tshepiso Nkwana | Web Portfolio</title>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- AOS ANIMATION LIBRARY -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      padding-top: 70px;
-      background-color: #ffffff;
-      color: #333;
-    }
-
-    .navbar {
-      background-color: #6b0013 !important;
-    }
-
-    .navbar-brand,
-    .nav-link {
-      color: white !important;
-      font-size: 15px;
-    }
-
-    .hero {
-      background-color: #f5f5f5;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #ffffff;
       color: #222;
-      padding: 80px 0;
-      border-bottom: 1px solid #ddd;
+    }
+
+    /* NAV */
+    .navbar {
+      background: #111 !important;
+    }
+
+    .nav-link {
+      color: #ddd !important;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: #fff !important;
+    }
+
+    /* HERO */
+    .hero {
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(135deg, #111, #333);
+      color: white;
+      padding: 20px;
     }
 
     .hero h1 {
-      font-size: 2.6rem;
-      font-weight: bold;
+      font-size: 3rem;
+      font-weight: 700;
     }
 
     .hero p {
-      font-size: 1.15rem;
-      color: #555;
-      max-width: 800px;
+      max-width: 750px;
       margin: auto;
+      opacity: 0.85;
+      font-size: 1.1rem;
     }
 
+    /* SECTION TITLE */
     .section-title {
-      color: #6b0013;
+      text-align: center;
       font-weight: bold;
-      margin-bottom: 25px;
-      border-bottom: 2px solid #6b0013;
-      display: inline-block;
-      padding-bottom: 5px;
+      margin-bottom: 40px;
+      position: relative;
     }
 
+    .section-title::after {
+      content: "";
+      width: 60px;
+      height: 3px;
+      background: #6b0013;
+      display: block;
+      margin: 10px auto;
+    }
+
+    /* CARD FIX (IMPORTANT ALIGNMENT FIX) */
     .card {
-      border: 1px solid #ddd;
-      border-radius: 0;
-      box-shadow: none;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      transition: 0.4s;
+
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
 
-    .card img {
-      height: 220px;
+    .card:hover {
+      transform: translateY(-10px);
+    }
+
+    .card-img-top {
+      height: 240px;
       object-fit: cover;
+      width: 100%;
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-body .btn {
+      margin-top: auto;
     }
 
     .card-title {
@@ -69,195 +109,194 @@
       font-weight: bold;
     }
 
-    a {
-      color: #6b0013;
-      text-decoration: none;
+    /* BUTTON */
+    .btn-custom {
+      background: #6b0013;
+      color: white;
+      border-radius: 30px;
+      padding: 8px 18px;
+      transition: 0.3s;
     }
 
-    a:hover {
-      text-decoration: underline;
+    .btn-custom:hover {
+      background: #3d000b;
+      transform: scale(1.05);
+      color: white;
     }
 
-    .profile-img {
-      max-width: 220px;
-      border: 1px solid #ccc;
+    /* ABOUT BOX */
+    .about-box {
+      background: #f8f9fa;
+      padding: 30px;
+      border-radius: 12px;
     }
 
+    /* FOOTER */
     footer {
-      background-color: #f1f1f1;
-      color: #555;
-      padding: 20px 0;
-      border-top: 1px solid #ddd;
-      font-size: 14px;
+      background: #111;
+      color: #aaa;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .typing {
+      border-right: 2px solid white;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Tshepiso Nkwana</a>
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">Tshepiso Nkwana</a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#portfolio">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <!-- Hero -->
-  <section class="hero text-center">
-    <div class="container">
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1 class="typing" id="typeText"></h1>
+    <p>
+      Web Coordinator Intern with hands-on experience in institutional web content management
+      and front-end development using HTML, CSS, Bootstrap, and C#.
+    </p>
+  </div>
+</section>
 
-      <h1>Web Coordinator Intern & Aspiring Front-End Developer</h1>
+<!-- ABOUT -->
+<section id="about" class="py-5">
+  <div class="container">
 
-      <p class="lead">
-        Detail-oriented web professional with experience in content management,
-        website coordination, and responsive front-end development using HTML, CSS, Bootstrap, and C#.
+    <h2 class="section-title" data-aos="fade-up">About Me</h2>
+
+    <div class="about-box" data-aos="fade-up">
+      <p>
+        I am a detail-oriented web professional with experience in institutional web coordination
+        and digital content management within an academic environment.
       </p>
 
+      <p>
+        During my internship at UNISA, I supported web updates, ensured content accuracy,
+        and maintained consistency across multiple academic web pages and digital platforms.
+      </p>
+
+      <p>
+        I am passionate about building clean, responsive user interfaces and continuously improving
+        my front-end development skills.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- About -->
-  <section id="about" class="py-5">
-    <div class="container">
+<!-- PROJECTS -->
+<section id="projects" class="py-5" style="background:#f8f9fa;">
+  <div class="container">
 
-      <div class="row align-items-center">
+    <h2 class="section-title" data-aos="fade-up">Projects & Experience</h2>
 
-        <div class="col-md-4 text-center mb-4">
-          <img src="images/Untitled-1-example.png"
-               class="img-fluid profile-img"
-               alt="Profile Photo">
-        </div>
+    <div class="row g-4 align-items-stretch">
 
-        <div class="col-md-8">
+      <!-- CARD 1 -->
+      <div class="col-md-6" data-aos="fade-right">
+        <div class="card">
+          <img src="images/17_Unisa_Architecture.png" class="card-img-top">
 
-          <h2 class="section-title">About Tshepiso</h2>
+          <div class="card-body">
+            <h5 class="card-title">UNISA Web Coordination</h5>
 
-          <p>
-            I am a motivated and detail-oriented Web Coordinator Intern with hands-on experience
-            in managing and maintaining institutional web content within a structured academic environment.
-          </p>
+            <p>
+              Assisted with maintaining academic web pages, ensuring accuracy, accessibility,
+              and consistency across institutional platforms.
+            </p>
 
-          <p>
-            During my internship at UNISA, I supported web updates, ensured content accuracy,
-            and assisted with maintaining consistency across multiple web pages and digital platforms.
-            This strengthened my understanding of web governance, publishing workflows,
-            and professional digital communication.
-          </p>
+            <h6>Sample Web Pages</h6>
 
-          <p>
-            I am currently expanding my technical skills in front-end development, focusing on
-            HTML, CSS, Bootstrap, and C#. I enjoy building clean, responsive, and user-friendly interfaces.
-          </p>
-
-          <p>
-            My career goal is to grow into a front-end or full-stack developer role within a
-            professional IT environment where I can contribute to scalable and accessible web solutions.
-          </p>
-
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Portfolio -->
-  <section id="portfolio" class="py-5 bg-light">
-    <div class="container">
-
-      <h2 class="text-center section-title">Projects & Experience</h2>
-
-      <div class="row g-4 justify-content-center">
-
-        <!-- UNISA Card -->
-        <div class="col-md-5">
-          <div class="card h-100">
-
-            <img src="images/17_Unisa_Architecture.png" class="card-img-top" alt="UNISA Work">
-
-            <div class="card-body">
-
-              <h5 class="card-title">UNISA Web Coordination</h5>
-
-              <p>
-                Assisted in maintaining academic web pages, ensuring accuracy, accessibility,
-                and consistency across institutional digital platforms.
-              </p>
-
-              <h6 class="mt-3">Sample Pages</h6>
-
-              <ul>
-                <li><a href="https://www.unisa.ac.za" target="_blank">UNISA Official Site</a></li>
-                <li><a href="https://staff.unisa.ac.za/sites/intranet/default/Departments/Leadership-and-Transformation/Staff-with-Disabilities" target="_blank">Staff Portal Pages</a></li>
-                <li><a href="https://www.unisa.ac.za/sites/myunisa/default/First%E2%80%93year-experience-at-Unisa/Student-Orientation" target="_blank">Academic Sections</a></li>
-              </ul>
-
-            </div>
+            <ul>
+              <li><a href="https://www.unisa.ac.za/sites/corporate/default/Colleges/Economic-and-Management-Sciences/News-&-events/Events/COMMRE-2026" target="_blank">Conferences Page</a></li>
+              <li><a href="https://staff.unisa.ac.za/sites/intranet/default/Departments/Leadership-and-Transformation/Staff-with-Disabilities" target="_blank">Staff Information Page</a></li>
+              <li><a href="https://www.unisa.ac.za/sites/corporate/default/Colleges/Education/Schools,-departments,-centres-&-instututes/Institutes/Institute-for-Open-and-Distance-Learning-(IODL)" target="_blank">Departmental Page</a></li>
+            </ul>
           </div>
         </div>
+      </div>
 
-        <!-- Academic Project -->
-        <div class="col-md-5">
-          <div class="card h-100">
+      <!-- CARD 2 -->
+      <div class="col-md-6" data-aos="fade-left">
+        <div class="card">
+          <img src="https://picsum.photos/500/300" class="card-img-top">
 
-            <img src="https://picsum.photos/402/200" class="card-img-top" alt="Academic Project">
+          <div class="card-body">
+            <h5 class="card-title">Academic Web Design Project</h5>
 
-            <div class="card-body">
+            <p>
+              Responsive web design project demonstrating layout structure, UI design,
+              and Bootstrap development skills.
+            </p>
 
-              <h5 class="card-title">Academic Web Design Project</h5>
-
-              <p>
-                Developed a responsive website as part of an academic assignment demonstrating
-                layout structure, responsiveness, and UI design principles.
-              </p>
-
-              <a href="https://olgarnkwana.wixsite.com/crownedbytshepi"
-                 target="_blank">
-                View Project
-              </a>
-
-            </div>
+            <a class="btn btn-custom" href="https://olgarnkwana.wixsite.com/crownedbytshepi" target="_blank">
+              View Project
+            </a>
           </div>
         </div>
-
       </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="py-5 text-center">
-    <div class="container">
-
-      <h2 class="section-title">Contact</h2>
-
-      <p>Email: <a href="mailto:olgarnkwana@gmail.com">olgarnkwana@gmail.com</a></p>
-
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/tshepiso-nkwana-171485211/" target="_blank">
-        View Profile
-      </a></p>
-
-      <p>GitHub: Available upon request</p>
 
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer class="text-center">
-    <p>&copy; 2026 Tshepiso Olgar Nkwana | Professional Web Profile</p>
-  </footer>
+<!-- CONTACT -->
+<section id="contact" class="py-5">
+  <div class="container text-center" data-aos="fade-up">
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <h2 class="section-title">Contact</h2>
+
+    <p><b>Email:</b> olgarnkwana@gmail.com</p>
+    <p><b>LinkedIn:</b> tshepiso-nkwana</p>
+    <p><b>GitHub:</b> Available upon request</p>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Tshepiso Nkwana | Web Portfolio
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+
+  // typing effect
+  const text = "Web Coordinator Intern & Front-End Developer";
+  let i = 0;
+  function type() {
+    if (i < text.length) {
+      document.getElementById("typeText").innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 60);
+    }
+  }
+  type();
+</script>
 
 </body>
 </html>
